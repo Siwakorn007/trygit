@@ -1,6 +1,6 @@
 // routes/petrol.js
 const express = require('express');
-const config = require('../config');
+const config = require('../config').default;
 const sql = require('mssql');
 
 const router = express.Router();
@@ -14,7 +14,7 @@ router.get('/petrol', async (req, res) => {
         console.error('Database query failed:', err);
         res.status(500).send('An error occurred while fetching data.');
     } finally {
-        closePool();
+
     }
 });
 
