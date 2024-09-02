@@ -47,7 +47,7 @@
 
 
 
-
+//===================================not using cause not stupid anyway bruh===============================================================//
 const express = require('express');
 const config = require('../config');
 const sql = require('mssql');
@@ -58,7 +58,7 @@ require('dotenv').config();
 
 
 // super idol secret key btw
-const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_key'; 
+const JWT_SECRET = process.env.JWT_SECRET || 'super_idol'; 
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
@@ -67,6 +67,7 @@ router.post('/login', async (req, res) => {
         const result = await pool.request()
             .input('Username', sql.VarChar(100), username)
             .query('SELECT * FROM User_Account WHERE Username = @Username');
+            
 
         if (result.recordset.length > 0) {
             const user = result.recordset[0];
@@ -101,5 +102,19 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+
+//-------------------for testing only--------------------------------------//
+// router.get('/users', async (req, res) => {
+//     try {
+//         const pool = await sql.connect(config);
+//         const result = await pool.request().query('SELECT * FROM User_Account');
+//         res.json(result.recordset);
+//     } catch (error) {
+//         console.error('Error fetching users:', error);
+//         res.status(500).json({ message: 'Server error' });
+//     }
+// });
+//---------------------------------------------------------------------------------//
 
 module.exports = router;
