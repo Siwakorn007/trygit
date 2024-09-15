@@ -2,7 +2,7 @@ const express = require('express');
 const config = require('../config');
 const sql = require('mssql');
 const router = express.Router();
-
+require('dotenv').config();
 router.get('/master_user', async (req, res) => {
     try {
         console.log('Attempting to connect to the database...');

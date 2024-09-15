@@ -2,6 +2,8 @@ const express = require("express");
 const config = require("../config");
 const sql = require("mssql");
 const router = express.Router();
+require('dotenv').config();
+
 
 router.get("/user_payment_info", async (req, res) => {
   try {

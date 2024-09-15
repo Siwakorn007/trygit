@@ -6,7 +6,7 @@ const express = require("express");
 const config = require("../config");
 const sql = require("mssql");
 const router = express.Router();
-
+require('dotenv').config();
 // Update a user by ID
 router.put("/master_user/:id", async (req, res) => {
   const User_ID = req.params.id;
@@ -42,8 +42,8 @@ router.put("/master_user/:id", async (req, res) => {
 
     // Execute the SQL update query
     await request.query(updateQuery);
-
-    res.send("User updated successfully");
+    res.json({ massage : "User updated successfully"});
+    // res.send("User updated successfully");
   } catch (error) {
     console.error("Error updating user:", error);
     res.status(500).send("Error updating user");

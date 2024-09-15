@@ -4,7 +4,7 @@
 // const bcrypt = require('bcryptjs');
 // const jwt = require('jsonwebtoken');
 // const router = express.Router();
-
+// require('dotenv').config();
 // router.post('/login', async (req, res) => {
 //     const { username, password } = req.body;
 //     try {

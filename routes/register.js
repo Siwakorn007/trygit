@@ -3,6 +3,7 @@ const config = require('../config');
 const sql = require('mssql');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 //-------------------for testing only--------------------------------------//
 
@@ -20,6 +21,8 @@ const bcrypt = require('bcryptjs');
 
 
 // Register user
+
+
 router.post('/register', async (req, res) => {
     const { firstName, lastName, username, password, email, phone, role } = req.body;
 

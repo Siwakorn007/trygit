@@ -2,7 +2,7 @@
 // const express = require('express');
 // const config = require('../config');
 // const sql = require('mssql');
-
+// require('dotenv').config();
 // const router = express.Router();
 
 // router.get('/petrol', async (req, res) => {

@@ -3,7 +3,7 @@ const express = require("express");
 const config = require("../config");
 const sql = require("mssql");
 const router = express.Router();
-
+require('dotenv').config();
 // register master
 router.post("/register_master", async (req, res) => {
     try {
